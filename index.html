@@ -117,7 +117,7 @@
   .projects{display:grid; grid-template-columns:1fr 1fr; gap:22px}
   .proj{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:26px;
     transition:.28s; position:relative; overflow:hidden; display:flex; flex-direction:column}
-  .proj::after{content:""; position:absolute; inset:0; border-radius:var(--radius); padding:1px;
+  .proj::after{content:""; position:absolute; inset:0; border-radius:var(--radius); padding:1px; pointer-events:none;
     background:var(--grad); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
     -webkit-mask-composite:xor; mask-composite:exclude; opacity:0; transition:.28s}
   .proj:hover{transform:translateY(-5px); border-color:transparent}
@@ -226,7 +226,6 @@
     into the data and figure out what it actually <b>means for a business</b>.</p>
   <div class="cta-row">
     <a href="#projects" class="btn btn-primary">View my work →</a>
-    <a href="https://jawadalvi16.github.io/telecom-customer-churn/" target="_blank" rel="noopener" class="btn btn-ghost">Live dashboard</a>
     <button class="btn btn-ghost js-email" data-email="alvijawad66@gmail.com">Email me</button>
   </div>
   <div class="chips">
@@ -253,8 +252,8 @@
     </div>
     <div class="facts">
       <div class="fact"><div class="n">4+</div><div class="l">Shipped projects, from data to full-stack</div></div>
-      <div class="fact"><div class="n">$139k</div><div class="l">Monthly revenue analysed for churn risk</div></div>
       <div class="fact"><div class="n">2</div><div class="l">Years running my own startup</div></div>
+      <div class="fact"><div class="n">5+</div><div class="l">Years mentoring O &amp; A Level students</div></div>
     </div>
   </div>
 </section>
@@ -296,7 +295,6 @@
     <article class="proj featured">
       <div class="proj-top">
         <h3>Telecom Customer Churn — Analysis &amp; Dashboard</h3>
-        <span class="badge live"><span class="pulse"></span>Live</span>
       </div>
       <p>Analysed <span class="hl">7,043 telecom customers</span> to find what drives churn — quantifying
         <span class="hl">$139k of monthly revenue at risk</span> — then built a prediction model (0.84 ROC-AUC)
