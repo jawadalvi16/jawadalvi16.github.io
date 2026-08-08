@@ -493,14 +493,14 @@
       const word = phrases[p];
       el.textContent = word.slice(0, i);
       if (!deleting){
-        if (i < word.length){ i++; setTimeout(tick, 65); }
-        else { deleting = true; setTimeout(tick, 1700); }
+        if (i < word.length){ i++; setTimeout(tick, 50); }
+        else { deleting = true; setTimeout(tick, 1100); }
       } else {
-        if (i > 0){ i--; setTimeout(tick, 34); }
-        else { deleting = false; p = (p + 1) % phrases.length; setTimeout(tick, 350); }
+        if (i > 0){ i--; setTimeout(tick, 22); }
+        else { deleting = false; p = (p + 1) % phrases.length; setTimeout(tick, 200); }
       }
     }
-    setTimeout(tick, 1700); // let the first (pre-filled) phrase sit before animating
+    setTimeout(tick, 950); // let the first (pre-filled) phrase sit before animating
   })();
 </script>
 </body>
