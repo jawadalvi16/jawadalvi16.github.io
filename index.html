@@ -14,8 +14,8 @@
     --bg:#0a0f1a; --bg-soft:#0f1626; --card:#121b2e; --card-2:#16223a;
     --ink:#eaf1fb; --muted:#93a3bd; --faint:#5f708c;
     --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
-    --accent:#2dd4bf; --accent-2:#5b9dff; --accent-3:#a78bfa;
-    --grad:linear-gradient(120deg,#5b9dff 0%,#2dd4bf 55%,#a78bfa 110%);
+    --accent:#f0a91e; --accent-2:#f6c453; --accent-3:#e0850a;
+    --grad:linear-gradient(120deg,#f6c453 0%,#f0a91e 55%,#e0850a 110%);
     --shadow:0 10px 40px rgba(0,0,0,.35); --radius:16px;
     --maxw:1080px;
   }
@@ -30,9 +30,9 @@
   body::before{
     content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
     background:
-      radial-gradient(650px 400px at 12% -5%, rgba(91,157,255,.16), transparent 60%),
-      radial-gradient(700px 450px at 100% 8%, rgba(45,212,191,.12), transparent 60%),
-      radial-gradient(600px 500px at 50% 110%, rgba(167,139,250,.10), transparent 60%);
+      radial-gradient(650px 400px at 12% -5%, rgba(240,169,30,.16), transparent 60%),
+      radial-gradient(700px 450px at 100% 8%, rgba(240,169,30,.12), transparent 60%),
+      radial-gradient(600px 500px at 50% 110%, rgba(240,169,30,.10), transparent 60%);
   }
   a{color:inherit;text-decoration:none}
   h1,h2,h3,.mono-accent{font-family:"Space Grotesk",sans-serif}
@@ -74,14 +74,18 @@
   .hero h1 .grad{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent}
   .hero .role{font-size:clamp(1.15rem,3vw,1.7rem); color:var(--muted); font-weight:500; margin-bottom:26px; letter-spacing:-.01em}
   .hero .role b{color:var(--ink); font-weight:600}
+  .hero .role .type{color:var(--ink); font-weight:600}
+  .cursor{display:inline-block; width:3px; height:1.02em; background:var(--accent); margin-left:4px;
+    vertical-align:-2px; border-radius:1px; animation:blink 1.05s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
   .lede{max-width:600px; color:var(--muted); font-size:1.06rem; margin-bottom:34px}
   .lede b{color:var(--ink); font-weight:600}
   .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px}
   .btn{padding:13px 24px; border-radius:99px; font-weight:600; font-size:.95rem; cursor:pointer;
     display:inline-flex; align-items:center; gap:9px; transition:.25s; border:1px solid transparent;
     font-family:inherit; background:transparent}
-  .btn-primary{background:var(--grad); color:#06121f; box-shadow:0 8px 26px rgba(45,212,191,.28)}
-  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 34px rgba(45,212,191,.4)}
+  .btn-primary{background:var(--grad); color:#06121f; box-shadow:0 8px 26px rgba(240,169,30,.28)}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 34px rgba(240,169,30,.4)}
   .btn-ghost{border-color:var(--line-2); color:var(--ink)}
   .btn-ghost:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-2px)}
   .chips{display:flex; gap:10px; flex-wrap:wrap}
@@ -105,7 +109,7 @@
     background:linear-gradient(var(--accent),var(--accent-3),transparent)}
   .tl-item{position:relative; margin-bottom:34px}
   .tl-item::before{content:""; position:absolute; left:-28px; top:6px; width:12px; height:12px; border-radius:50%;
-    background:var(--bg); border:2px solid var(--accent); box-shadow:0 0 0 4px rgba(45,212,191,.12)}
+    background:var(--bg); border:2px solid var(--accent); box-shadow:0 0 0 4px rgba(240,169,30,.12)}
   .tl-head{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline}
   .tl-role{font-family:"Space Grotesk"; font-weight:600; font-size:1.15rem}
   .tl-co{color:var(--accent); font-weight:500}
@@ -128,15 +132,15 @@
   .proj.featured h3{font-size:1.45rem}
   .badge{font-family:"JetBrains Mono",monospace; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase;
     padding:5px 11px; border-radius:99px; display:inline-flex; align-items:center; gap:6px; white-space:nowrap}
-  .badge.live{background:rgba(45,212,191,.14); color:var(--accent); border:1px solid rgba(45,212,191,.3)}
+  .badge.live{background:rgba(240,169,30,.14); color:var(--accent); border:1px solid rgba(240,169,30,.3)}
   .badge.live .pulse{width:7px; height:7px; border-radius:50%; background:var(--accent); animation:pulse 1.6s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(45,212,191,.6)}70%{box-shadow:0 0 0 7px rgba(45,212,191,0)}100%{box-shadow:0 0 0 0 rgba(45,212,191,0)}}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(240,169,30,.6)}70%{box-shadow:0 0 0 7px rgba(240,169,30,0)}100%{box-shadow:0 0 0 0 rgba(240,169,30,0)}}
   .badge.type{background:rgba(255,255,255,.05); color:var(--muted); border:1px solid var(--line)}
   .proj p{color:var(--muted); font-size:.96rem; margin-bottom:16px; flex:1}
   .proj p .hl{color:var(--ink); font-weight:600}
   .tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px}
   .tag{font-family:"JetBrains Mono",monospace; font-size:.72rem; color:var(--accent-2);
-    background:rgba(91,157,255,.1); border:1px solid rgba(91,157,255,.16); padding:4px 10px; border-radius:6px}
+    background:rgba(240,169,30,.1); border:1px solid rgba(240,169,30,.16); padding:4px 10px; border-radius:6px}
   .proj-links{display:flex; gap:18px}
   .proj-links a{font-size:.88rem; font-weight:600; color:var(--ink); display:inline-flex; align-items:center; gap:6px; transition:.2s}
   .proj-links a:hover{color:var(--accent)}
@@ -168,7 +172,7 @@
   .contact p{color:var(--muted); max-width:520px; margin:0 auto 32px; font-size:1.05rem}
   .contact .cta-row{justify-content:center}
   .email-out{margin-top:20px; font-family:"JetBrains Mono",monospace; font-size:1.02rem; min-height:1.2em}
-  .email-out a{color:var(--accent); border-bottom:1px solid rgba(45,212,191,.35)}
+  .email-out a{color:var(--accent); border-bottom:1px solid rgba(240,169,30,.35)}
   .social{display:flex; gap:16px; justify-content:center; margin-top:22px}
   .social a,.social-btn{width:46px; height:46px; border-radius:50%; border:1px solid var(--line-2); display:grid; place-items:center;
     color:var(--muted); transition:.25s; background:transparent; cursor:pointer; font-family:inherit; font-size:.9rem; font-weight:600}
@@ -220,7 +224,7 @@
 <header class="hero" id="top">
   <div class="hi">Hi, my name is</div>
   <h1>Arif Jawad <span class="grad">Alvi</span>.</h1>
-  <div class="role">I work where <b>business</b> meets <b>technology</b>.</div>
+  <div class="role">I work where <span class="type" id="typed">business meets technology.</span><span class="cursor" aria-hidden="true"></span></div>
   <p class="lede">I'm a Computer Science graduate who's more drawn to the <b>business</b> side of tech than to the
     code alone. I co-founded a startup, I'm currently building AI automation, and I like projects where I can dig
     into the data and figure out what it actually <b>means for a business</b>.</p>
@@ -477,6 +481,27 @@
   }
   document.querySelectorAll('.js-email').forEach(b =>
     b.addEventListener('click', () => revealEmail(b.dataset.email)));
+
+  // typewriter: types and rotates the end of the tagline
+  (function(){
+    const el = document.getElementById('typed');
+    if (!el) return;
+    const phrases = ["business meets technology.", "data becomes decisions.", "ideas become products."];
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){ el.textContent = phrases[0]; return; }
+    let p = 0, i = phrases[0].length, deleting = false;
+    function tick(){
+      const word = phrases[p];
+      el.textContent = word.slice(0, i);
+      if (!deleting){
+        if (i < word.length){ i++; setTimeout(tick, 65); }
+        else { deleting = true; setTimeout(tick, 1700); }
+      } else {
+        if (i > 0){ i--; setTimeout(tick, 34); }
+        else { deleting = false; p = (p + 1) % phrases.length; setTimeout(tick, 350); }
+      }
+    }
+    setTimeout(tick, 1700); // let the first (pre-filled) phrase sit before animating
+  })();
 </script>
 </body>
 </html>
