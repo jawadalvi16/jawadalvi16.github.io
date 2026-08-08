@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arif Jawad Alvi — Computer Science Graduate & Co-founder</title>
 <meta name="description" content="Arif Jawad Alvi — Computer Science graduate and startup co-founder who works where business meets technology. Projects in data, AI and full-stack development.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -67,7 +68,8 @@
   .lede b{color:var(--ink); font-weight:600}
   .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px}
   .btn{padding:13px 24px; border-radius:99px; font-weight:600; font-size:.95rem; cursor:pointer;
-    display:inline-flex; align-items:center; gap:9px; transition:.25s; border:1px solid transparent}
+    display:inline-flex; align-items:center; gap:9px; transition:.25s; border:1px solid transparent;
+    font-family:inherit; background:transparent}
   .btn-primary{background:var(--grad); color:#06121f; box-shadow:0 8px 26px rgba(45,212,191,.28)}
   .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 34px rgba(45,212,191,.4)}
   .btn-ghost{border-color:var(--line-2); color:var(--ink)}
@@ -155,10 +157,18 @@
   .contact h2 .grad{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent}
   .contact p{color:var(--muted); max-width:520px; margin:0 auto 32px; font-size:1.05rem}
   .contact .cta-row{justify-content:center}
-  .social{display:flex; gap:16px; justify-content:center; margin-top:8px}
-  .social a{width:46px; height:46px; border-radius:50%; border:1px solid var(--line-2); display:grid; place-items:center;
-    color:var(--muted); transition:.25s}
-  .social a:hover{color:var(--accent); border-color:var(--accent); transform:translateY(-3px)}
+  .email-out{margin-top:20px; font-family:"JetBrains Mono",monospace; font-size:1.02rem; min-height:1.2em}
+  .email-out a{color:var(--accent); border-bottom:1px solid rgba(45,212,191,.35)}
+  .social{display:flex; gap:16px; justify-content:center; margin-top:22px}
+  .social a,.social-btn{width:46px; height:46px; border-radius:50%; border:1px solid var(--line-2); display:grid; place-items:center;
+    color:var(--muted); transition:.25s; background:transparent; cursor:pointer; font-family:inherit; font-size:.9rem; font-weight:600}
+  .social a:hover,.social-btn:hover{color:var(--accent); border-color:var(--accent); transform:translateY(-3px)}
+  /* toast */
+  .toast{position:fixed; left:50%; bottom:28px; transform:translate(-50%,20px); background:var(--card-2);
+    border:1px solid var(--line-2); color:var(--ink); padding:12px 18px; border-radius:12px; font-size:.9rem;
+    box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:.3s; z-index:100; max-width:90vw}
+  .toast .m{color:var(--accent); font-family:"JetBrains Mono",monospace}
+  .toast.show{opacity:1; transform:translate(-50%,0)}
   footer{text-align:center; color:var(--muted); font-size:.85rem; padding:50px 24px 34px; border-top:1px solid var(--line); margin-top:80px}
   footer .mono{font-family:"JetBrains Mono",monospace; font-size:.78rem; color:var(--faint)}
 
@@ -201,12 +211,13 @@
   <div class="hi">Hi, my name is</div>
   <h1>Arif Jawad <span class="grad">Alvi</span>.</h1>
   <div class="role">I work where <b>business</b> meets <b>technology</b>.</div>
-  <p class="lede">Computer Science graduate and startup co-founder. I build data-driven products and turn
-    analysis into decisions — from an <b>interactive churn dashboard</b> to a full-stack app and AI research.</p>
+  <p class="lede">I'm a Computer Science graduate who's more drawn to the <b>business</b> side of tech than to the
+    code alone. I co-founded a startup, I'm currently building AI automation, and I like projects where I can dig
+    into the data and figure out what it actually <b>means for a business</b>.</p>
   <div class="cta-row">
     <a href="#projects" class="btn btn-primary">View my work →</a>
-    <a href="https://jawadalvi16.github.io/telecom-customer-churn/" target="_blank" rel="noopener" class="btn btn-ghost">◆ Live dashboard</a>
-    <a href="mailto:alvijawad66@gmail.com" class="btn btn-ghost">Email me</a>
+    <a href="https://jawadalvi16.github.io/telecom-customer-churn/" target="_blank" rel="noopener" class="btn btn-ghost">Live dashboard</a>
+    <button class="btn btn-ghost js-email" data-email="alvijawad66@gmail.com">Email me</button>
   </div>
   <div class="chips">
     <span class="chip"><span class="dot"></span>Startup co-founder</span>
@@ -385,11 +396,12 @@
   <p>I'm looking for opportunities where I can work across business and technology. If you're hiring or just
     want to talk, my inbox is open.</p>
   <div class="cta-row">
-    <a href="mailto:alvijawad66@gmail.com" class="btn btn-primary">Say hello →</a>
+    <button class="btn btn-primary js-email" data-email="alvijawad66@gmail.com">Show my email →</button>
   </div>
+  <p class="email-out" id="emailOut" hidden></p>
   <div class="social">
-    <a href="mailto:alvijawad66@gmail.com" title="Email" aria-label="Email">✉</a>
-    <a href="https://github.com/jawadalvi16" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">⌥</a>
+    <button class="social-btn js-email" data-email="alvijawad66@gmail.com" title="Email" aria-label="Show email">✉</button>
+    <a href="https://github.com/jawadalvi16" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">GH</a>
   </div>
 </section>
 
@@ -397,6 +409,8 @@
   <div>Designed &amp; built by Arif Jawad Alvi · Dhaka, Bangladesh</div>
   <div class="mono">© <span id="year"></span> · made from scratch</div>
 </footer>
+
+<div class="toast" id="toast"></div>
 
 <script>
   // sticky nav shadow
@@ -439,6 +453,21 @@
   sections.forEach(s => spy.observe(s));
 
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // click-to-reveal email (also copies to clipboard + shows a toast)
+  const toast = document.getElementById('toast');
+  const emailOut = document.getElementById('emailOut');
+  let toastTimer;
+  function revealEmail(email){
+    if (emailOut){ emailOut.hidden = false; emailOut.innerHTML = '<a href="mailto:'+email+'">'+email+'</a>'; }
+    if (navigator.clipboard){ navigator.clipboard.writeText(email).catch(()=>{}); }
+    toast.innerHTML = 'Copied to clipboard &nbsp;<span class="m">'+email+'</span>';
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>toast.classList.remove('show'), 3000);
+  }
+  document.querySelectorAll('.js-email').forEach(b =>
+    b.addEventListener('click', () => revealEmail(b.dataset.email)));
 </script>
 </body>
 </html>
