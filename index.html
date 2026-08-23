@@ -529,7 +529,7 @@
   const bar = document.getElementById('progress');
   const heroEl = document.querySelector('.hero');
   let ticking = false;
-  function onScroll(){
+  function onScrollFx(){
     const d = document.documentElement;
     if (bar){ bar.style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight || 1) * 100) + '%'; }
     if (!RM && heroEl && !ticking){
@@ -540,8 +540,8 @@
       });
     }
   }
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  onScrollFx();
+  window.addEventListener('scroll', onScrollFx, { passive: true });
 
   // count-up on the About stat numbers
   function countUp(el){
